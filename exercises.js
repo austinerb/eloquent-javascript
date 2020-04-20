@@ -133,3 +133,94 @@
 
 
 // CHAPTER 4
+
+
+// The sum of a range
+
+// Write a range function that takes two arguments, start and end, and returns
+// an array containing all the numbers from start up to (and including) end.
+
+// function range(start, end) {
+//   let values = [];
+//   for (let i = start; i <= end; i++) {
+//     values.push(i);
+//   }
+//   return values;
+// }
+//
+// console.log(range(1,5));
+// console.log(range(10,15));
+
+// Next, write a sum function that takes an array of numbers and returns the
+// sum of these numbers. Run the example program and see whether it does indeed
+// return 55.
+
+// function sum(range) {
+//   let sum = 0;
+//   for (let i = 0; i < range.length; i++) {
+//     sum += range[i];
+//   }
+//   return sum;
+// }
+//
+// let values = [10, 11, 12, 13, 14, 15];
+// console.log(sum(values));
+
+// As a bonus assignment, modify your range function to take an optional
+// third argument that indicates the “step” value used when building the array.
+// If no step is given, the elements go up by increments of one, corresponding
+// to the old behavior. The function call range(1, 10, 2) should return
+// [1, 3, 5, 7, 9]. Make sure it also works with negative step values so that
+// range(5, 2, -1) produces [5, 4, 3, 2].
+
+// function rangeStep(start, end, step = 1) {
+//   let values = [];
+//   if (step > 1) {
+//     for (let i = start; i <= end; i++) {
+//       if ((i - start) % step == 0) {
+//         values.push(i);
+//       }
+//     }
+//   } else {
+//     for (let i = start; i >= end; i--) {
+//       if ((i - start) % step == 0) {
+//         values.push(i);
+//       }
+//     }
+//   }
+//   return values;
+// }
+//
+// console.log(rangeStep(1,5,2));
+// console.log(rangeStep(10,25,3));
+// console.log(rangeStep(40,-25,-5));
+
+
+// Reversing an array
+
+// The first, reverseArray, takes an array as argument and produces a new array
+// that has the same elements in the inverse order.
+
+// function reverseArray(arr) {
+//   let newArr = [];
+//   for (let i = arr.length-1; i >= 0; i--) {
+//     newArr.push(arr[i]);
+//   }
+//   return newArr;
+// }
+
+// console.log(reverseArray(["A", "B", "C"]));
+
+// The second, reverseArrayInPlace, does what the reverse method does: it
+// modifies the array given as argument by reversing its elements.
+
+// function reverseArrayInPlace(arr) {
+//   let cpy = arr.slice(0, arr.length);
+//   for (let i = 0; i < arr.length; i++) {
+//     arr[i] = cpy[arr.length-1-i];
+//   }
+// }
+//
+// let arrayValue = [1, 2, 3, 4, 5];
+// reverseArrayInPlace(arrayValue);
+// console.log(arrayValue);
