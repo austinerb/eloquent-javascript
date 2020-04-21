@@ -224,3 +224,99 @@
 // let arrayValue = [1, 2, 3, 4, 5];
 // reverseArrayInPlace(arrayValue);
 // console.log(arrayValue);
+
+
+// A List
+
+// Write a function arrayToList that builds up a list structure like the one
+// shown when given [1, 2, 3] as argument.
+
+// function arrayToList(arr) {
+//   let list = {};
+//   let currentObj = null;
+//   for (let i = arr.length-1; i >= 0; i--) {
+//     currentObj = {value: arr[i], rest: currentObj};
+//   }
+//   list = currentObj;
+//   return list;
+// }
+//
+// console.log(arrayToList([10, 20]));
+
+// Also write a listToArray function that produces an array from a list.
+
+// function listToArray(list) {
+//   let arr = [];
+//   let count = 0;
+//   let rest = list;
+//   while (rest != null) {
+//     arr[count] = rest.value;
+//     count++;
+//     rest = rest.rest;
+//   }
+//   return arr;
+// }
+//
+// console.log(listToArray(arrayToList([10, 20, 30])));
+
+// Then add a helper function prepend, which takes an element and a list and
+// creates a new list that adds the element to the front of the input list.
+
+// function prepend(e, list) {
+//   return {value: e, rest: list};
+// }
+//
+// console.log(prepend(10, prepend(20, null)));
+
+// nth, which takes a list and a number and returns the element at the given
+// position in the list (with zero referring to the first element) or undefined
+// when there is no such element.
+
+// function nth(list, num) {
+//   if (num == 0) return list.value;
+//   else {
+//     return nth(list.rest, num-1);
+//   }
+// }
+//
+// console.log(nth(arrayToList([10, 20, 30]), 1));
+
+
+// Deep Comparison
+
+// Write a function deepEqual that takes two values and returns true only if
+// they are the same value or are objects with the same properties, where the
+// values of the properties are equal when compared with a recursive call to
+// deepEqual.
+
+// function deepEqual(val1, val2) {
+//   if (val1 == null && val2 == null) return true;
+//   else if (val1 == null || val2 == null) return false;
+//   else if (typeof val1 == "object" && typeof val2 == "object") {
+//     let keys1 = Object.keys(val1);
+//     let keys2 = Object.keys(val2);
+//
+//     if (keys1.length != keys2.length) return false;
+//
+//     for (let i = 0; i < keys1.length; i++) {
+//       keyName = keys1[i];
+//       let keyVal1 = val1[keyName];
+//       let keyVal2 = val2[keyName];
+//
+//       if (!deepEqual(keyVal1, keyVal2)) return false;
+//     }
+//   } else {
+//     return val1 === val2;
+//   }
+//
+//   return true;
+// }
+//
+// let obj = {here: {is: "an"}, object: 2};
+// console.log(null, null, deepEqual(null, null));
+// console.log(null, "a", deepEqual(null, "a"));
+// console.log("b", "a", deepEqual("b", "a"));
+// console.log("b,b", deepEqual("b", "b"));
+// console.log("obj", "obj", deepEqual(obj, obj));
+// console.log("obj", "non obj", deepEqual(obj, {here: 1, object: 2}));
+// console.log("obj", "eq obj", deepEqual(obj, {here: {is: "an"}, object: 2}));
