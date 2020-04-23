@@ -426,3 +426,138 @@
 
 
 // Groups
+
+// Write a class called Group (since Set is already taken). Like Set, it has
+// add, delete, and has methods. Its constructor creates an empty group, add
+// adds a value to the group (but only if it isn’t already a member), delete
+// removes its argument from the group (if it was a member), and has returns a
+// Boolean value indicating whether its argument is a member of the group.
+
+// Give the class a static from method that takes an iterable object as
+// argument and creates a group that contains all the values produced by
+// iterating over it.
+
+// class Group {
+//   constructor() {
+//     this.group = [];
+//   }
+//
+//   add(value) {
+//     if (this.group.indexOf(value) == -1) {
+//       this.group.push(value);
+//     }
+//   }
+//
+//   delete(value) {
+//     let i = this.group.indexOf(value);
+//     if (i == -1) return;
+//     if (this.group.length == 1) this.group = [];
+//
+//     this.group = this.group.slice(0, i).concat(this.group.slice(i+1, this.group.length));
+//   }
+//
+//   has(value) {
+//     let i = this.group.indexOf(value);
+//
+//     if (i == -1) return false;
+//
+//     return true;
+//   }
+//
+//   static from(i) {
+//     let g = new Group();
+//
+//     for (let val of i) {
+//       g.add(val);
+//     }
+//
+//     return g;
+//   }
+// }
+//
+// let group = Group.from([10, 20]);
+// console.log(group.has(10));
+// console.log(group.has(30));
+// group.add(10);
+// group.delete(10);
+// console.log(group.has(10));
+
+
+// Iterable Groups
+
+// Make the Group class from the previous exercise iterable.
+// DIDN'T SOLVE MYSELF
+
+// class Group {
+//   constructor() {
+//     this.group = [];
+//   }
+//
+//   add(value) {
+//     if (this.group.indexOf(value) == -1) {
+//       this.group.push(value);
+//     }
+//   }
+//
+//   delete(value) {
+//     let i = this.group.indexOf(value);
+//     if (i == -1) return;
+//     if (this.group.length == 1) this.group = [];
+//
+//     this.group = this.group.slice(0, i).concat(this.group.slice(i+1, this.group.length));
+//   }
+//
+//   has(value) {
+//     let i = this.group.indexOf(value);
+//
+//     if (i == -1) return false;
+//
+//     return true;
+//   }
+//
+//   static from(i) {
+//     let g = new Group();
+//
+//     for (let val of i) {
+//       g.add(val);
+//     }
+//
+//     return g;
+//   }
+//
+//   [Symbol.iterator]() {
+//     return new GroupIterator(this);
+//   }
+// }
+//
+// class GroupIterator {
+//   constructor(group) {
+//     this.group = group;
+//     this.i = 0;
+//   }
+//
+//   next() {
+//     if (this.i == this.group.group.length) return {done: true};
+//
+//     let value = this.group.group[this.i];
+//     this.i++;
+//
+//     return {value, done: false};
+//   }
+// }
+//
+// for (let value of Group.from(["a", "b", "c"])) {
+//   console.log(value);
+// }
+
+
+// Borrowing a Method
+
+// Can you think of a way to call hasOwnProperty on an object that has its own
+// property by that name?
+
+// DIDN'T SOLVE MYSELF
+
+// let map = {one: true, two: true, hasOwnProperty: true};
+//
+// console.log(Object.prototype.hasOwnProperty.call(map, "one"));
